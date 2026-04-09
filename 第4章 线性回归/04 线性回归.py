@@ -3,7 +3,7 @@
 
 # In[1]:
 
-
+import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator
@@ -70,24 +70,10 @@ y_pred = linreg.predict(x_test)
 # 计算预测值和真实值之间的RMSE
 rmse_loss = np.sqrt(np.square(y_test - y_pred).mean())
 print('RMSE：', rmse_loss)
-
+print("完成全部代码！！！！")
 
 # In[4]:
 
-
-# 该函数每次返回大小为batch_size的批量
-# x和y分别为输入和标签
-# 若shuffle = True，则每次遍历时会将数据重新随机划分
-def batch_generator(x, y, batch_size, shuffle=True):
-    # 批量计数器
-    batch_count = 0
-    if shuffle:
-        # 随机生成0到len(x)-1的下标
-        idx = np.random.permutation(len(x))
-        x = x[idx]
-        y = y[idx]
-    while True:
-        start = batch_count * batch_size
         end = min(start + batch_size, len(x))
         if start >= end:
             # 已经遍历一遍，结束生成
